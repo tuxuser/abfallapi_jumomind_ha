@@ -124,7 +124,13 @@ class JumomindAbfallSensor(Entity):
         
         for date in dates:
             # Example: {'id': '9499937', 'title': 'Gelber Sack', 'trash_name': 'ZAW_GELB', 'day': '2020-11-19', 'description': '', 'color': '#dcef08'}
-            attributes.update({date['day']: date['title']})
+            day = date['day']
+            title = date['title']
+
+            if day in attributes:
+                title = ', '.join(attributes[day], title)
+
+            attributes.update({day: title})
         
         attributes.update({'Zuletzt aktualisiert': datetime.now().strftime(DATE_FORMAT + ' %H:%M:%S')})
         data = attributes.get(tommorow.strftime(DATE_FORMAT), "Keine")
