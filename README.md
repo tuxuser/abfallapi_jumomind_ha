@@ -141,7 +141,7 @@ Configuration entry:
 ```yaml
 trash_types:
   - ZAW_BIO
-  - ZAW_GELD
+  - ZAW_GELB
   - ZAW_PAP
   - ZAW_REST_2W
 ```
