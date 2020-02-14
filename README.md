@@ -103,16 +103,21 @@ Example output:
 
 ```json
 [
- {"name": "Weiterstädter Weg", "_name": "Weiterstädter Weg", "id": "4571", "area_id": "257"},
- {"name": "Westendstr.", "_name": "Westendstr.", "id": "4572", "area_id": "258"},
+ {"name":"TANNENWEG","_name":"TANNENWEG","id":"372409","area_id":"089110001","houseNumberFrom":"0001","houseNumberTo":"0001","comment":"","houseNumbers":[["0001","089110001"],["0002","089110002"],["0002A","089110002A"],["0004","089110004"],["0006","089110006"]]},
  ...
 ]
 ```
 
-Example for *Weiterstädter Weg*:
+Example for *Tannenweg 1*:
 
 ```yaml
-area_id: 257
+area_id: 089110001
+```
+
+Example for *Tannenweg 2*:
+
+```yaml
+area_id: 089110002
 ```
 
 ### Setup sensor
@@ -123,7 +128,7 @@ area_id: 257
   scan_interval: 3600
   service_id: Minden
   city_id: 87
-  area_id: 257
+  area_id: 089110001
 ```
 
 ### Customize
