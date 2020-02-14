@@ -120,6 +120,32 @@ Example for *Tannenweg 2*:
 area_id: 089110002
 ```
 
+#### (Optional) Filter for trash types
+If you just want specific types of trash collection to be respected...
+
+`GET https://<ENDPOINT>.jumomind.com/mmapp/api.php?r=trash&city_id=<city_id>&area_id=<area_id>`
+
+Example output for Service ZAW:
+```json
+[
+  {"title":"Biomüll","name":"ZAW_BIO","_name":"ZAW_BIO","color":"06c53c"},
+  {"title":"Gelber Sack","name":"ZAW_GELB","_name":"ZAW_GELB","color":"dcef08"},
+  {"title":"Papier Tonnen und Container","name":"ZAW_PAP","_name":"ZAW_PAP","color":"2b52e7"},
+  {"title":"Restmüll Container wöchentlich","name":"ZAW_REST_W","_name":"ZAW_REST_W","color":"99999"},
+  {"title":"Restmüll Tonnen und Container 14-täglich","name":"ZAW_REST_2W","_name":"ZAW_REST_2W","color":"717170"},
+  {"title":"Schadstoffmobil","name":"ZAW_SCHAD","_name":"ZAW_SCHAD","color":"e0483d"}
+]
+```
+
+Configuration entry:
+```yaml
+trash_types:
+  - ZAW_BIO
+  - ZAW_GELD
+  - ZAW_PAP
+  - ZAW_REST_2W
+```
+
 ### Setup sensor
 
 ```yaml
@@ -129,6 +155,21 @@ area_id: 089110002
   service_id: Minden
   city_id: 87
   area_id: 089110001
+```
+
+Or for ZAW, filtering for specific trash types:
+```yaml
+- platform: abfallapi_jumomind
+  name: muellabfuhr
+  scan_interval: 3600
+  service_id: ZAW
+  city_id: 106
+  area_id: 49
+  trash_types:
+    - ZAW_BIO
+    - ZAW_GELD
+    - ZAW_PAP
+    - ZAW_REST_2W
 ```
 
 ### Customize
