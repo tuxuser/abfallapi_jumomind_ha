@@ -39,9 +39,9 @@ Based on [AWB Köln Home Assistant sensor](https://github.com/jensweimann/awb) b
 
 Copy all files from custom_components/abfallapi_jumomind/ to custom_components/abfallapi_jumomind/ inside your config Home Assistant directory.
 
-### Hacs
+### HACS
 
-Add this repo in the settings as integration then install and restart home assistant
+Add `https://github.com/tuxuser/abfallapi_jumomind_ha` in HACS -> Settings as integration, search & install the integration and restart home assistant.
 
 <!---
 ## Discussion
