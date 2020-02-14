@@ -128,7 +128,8 @@ class JumomindAbfallSensor(Entity):
             title = date['title']
 
             if day in attributes:
-                title = ', '.join(attributes[day], title)
+                existing_title = attributes[day]
+                title = ', '.join([existing_title, title])
 
             attributes.update({day: title})
         
