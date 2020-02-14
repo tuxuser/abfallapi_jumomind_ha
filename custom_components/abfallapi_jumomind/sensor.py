@@ -27,12 +27,15 @@ DATE_FORMAT = '%Y-%m-%d'
 CONF_SERVICE_ID = 'service_id'
 CONF_CITY_ID = 'city_id'
 CONF_AREA_ID = 'area_id'
+CONF_TRASH_TYPES = 'trash_types'
 
 _QUERY_SCHEME = vol.Schema({
     vol.Required(CONF_NAME): cv.string,
     vol.Required(CONF_SERVICE_ID): cv.string,
     vol.Required(CONF_CITY_ID): cv.string,
     vol.Required(CONF_AREA_ID): cv.string,
+    vol.Optional(CONF_TRASH_TYPES, default=[]):
+        vol.All(cv.ensure_list, [cv.string]),
     vol.Optional(CONF_VALUE_TEMPLATE): cv.template
 })
 
@@ -54,17 +57,19 @@ def setup_platform(
                                      service,
                                      config.get(CONF_CITY_ID),
                                      config.get(CONF_AREA_ID),
+                                     config.get(CONF_TRASH_TYPES),
                                      value_template)])
 
 class JumomindAbfallSensor(Entity):
 
     """Representation of a Sensor."""
-    def __init__(self, name, service, city_id, area_id, value_template):
+    def __init__(self, name, service, city_id, area_id, trash_types, value_template):
         """Initialize the sensor."""
         self._name = name
 
         self._city_id = city_id
         self._area_id = area_id
+        self._trash_types = trash_types
 
         self._api = JumomindAbfallApi(service)
 
@@ -112,6 +117,11 @@ class JumomindAbfallSensor(Entity):
             return
         
         attributes = {}
+        
+        if self._trash_types:
+            # If provided filter for wanted trash types
+            dates = [d for d in dates if d['trash_name'] in self._trash_types]
+        
         for date in dates:
             # Example: {'id': '9499937', 'title': 'Gelber Sack', 'trash_name': 'ZAW_GELB', 'day': '2020-11-19', 'description': '', 'color': '#dcef08'}
             attributes.update({date['day']: date['title']})
