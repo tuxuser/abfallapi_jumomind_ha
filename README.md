@@ -1,4 +1,4 @@
-[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/custom-components/hacs)
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/custom-components/hacs)
 
 # Home Assistant sensor for german waste collection schedule (Jumomind)
 
@@ -41,7 +41,7 @@ Copy all files from custom_components/abfallapi_jumomind/ to custom_components/a
 
 ### HACS
 
-Add `https://github.com/tuxuser/abfallapi_jumomind_ha` in HACS -> Settings as integration, search & install the integration and restart home assistant.
+Search for Abfall API (Jumomind) in HACS -> Integrations. Install the integration and restart home assistant.
 
 <!---
 ## Discussion
