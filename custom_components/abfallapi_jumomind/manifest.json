@@ -4,6 +4,7 @@
   "documentation": "https://github.com/tuxuser/abfallapi_jumomind_ha",
   "requirements": [],
   "homeassistant": "0.104.3",
+  "version": "1.0.0",
   "dependencies": [
   ],
   "codeowners": [
