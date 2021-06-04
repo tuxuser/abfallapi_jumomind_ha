@@ -29,7 +29,8 @@ SERVICES = {
     'Recklinghausen': 'ksr',
     #'Ingolstadt': 'inkb',
     'Uckermark': 'udg',
-    #'Groß-Gerau': 'aws'
+    #'Groß-Gerau': 'aws',
+    'MyMuell,: 'mymuell'
 }
 
 class JumomindAbfallApi(object):
