@@ -30,7 +30,7 @@ SERVICES = {
     #'Ingolstadt': 'inkb',
     'Uckermark': 'udg',
     #'Groß-Gerau': 'aws',
-    'MyMuell,: 'mymuell'
+    'MyMuell': 'mymuell'
 }
 
 class JumomindAbfallApi(object):
