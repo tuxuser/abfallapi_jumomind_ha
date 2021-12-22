@@ -27,7 +27,7 @@ SERVICES = {
     'Minden': 'sbm',
     'Rhein-Hunsrück': 'rhe',
     'Recklinghausen': 'ksr',
-    #'Ingolstadt': 'inkb',
+    'Ingolstadt': 'ingol',
     'Uckermark': 'udg',
     #'Groß-Gerau': 'aws',
     'MyMuell': 'mymuell'
